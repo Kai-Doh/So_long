@@ -2,7 +2,7 @@
 static char *player_down[] = {
 /* columns rows colors chars-per-pixel */
 "29 32 141 2 ",
-"   c #e7d4a9",
+"   c #E7D4A9",
 ".  c #2D2921",
 "X  c #2E2920",
 "o  c #2E2921",

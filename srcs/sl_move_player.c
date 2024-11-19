@@ -6,17 +6,17 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 02:05:29 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/19 23:13:06 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/11/19 23:56:43 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	is_valid_move(t_game *game, int new_row, int new_col);
+int		is_valid_move(t_game *game, int new_row, int new_col);
 void	update_map(char **map, int old_row, int old_col,
 	int new_row, int new_col, int *e_tile);
 void	handle_interactions(t_game *game, int row, int col);
-int	all_collectibles_collected(t_game *game);
+int		all_collectibles_collected(t_game *game);
 
 void	move_player(t_game *game, int row_offset, int col_offset)
 {

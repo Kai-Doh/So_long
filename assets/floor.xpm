@@ -2,7 +2,7 @@
 static char *floor[] = {
 /* columns rows colors chars-per-pixel */
 "32 32 37 1 ",
-"  c #e7d4a9",
+"  c #E7D4A9",
 ". c #DCCAA1",
 "X c #DDCBA1",
 "o c #DDCBA2",
