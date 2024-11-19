@@ -6,7 +6,7 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 01:45:57 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/19 13:57:47 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/11/19 16:01:41 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	render_collectible(t_game *game, int i, int j)
 {
-	mlx_string_put(game->mlx, game->win, j * TILE_SIZE + game->left_offset, (i * TILE_SIZE) + 40,
-		0x0000FFFF, "C");
+	mlx_put_image_to_window(game->mlx, game->win,
+		game->cache.img_collectible, (j * TILE_SIZE) + 4, i * TILE_SIZE);
 }
 
 void	render_exit(t_game *game, int i, int j)
 {
-	mlx_string_put(game->mlx, game->win, j * TILE_SIZE + game->left_offset, (i * TILE_SIZE) + 40,
-		0x00FFFF00, "E");
+	mlx_put_image_to_window(game->mlx, game->win,
+		game->cache.img_exit, (j * TILE_SIZE) + 20, i * TILE_SIZE);
 }

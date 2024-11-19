@@ -6,7 +6,7 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 01:51:09 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/19 13:40:19 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/11/19 14:45:25 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,10 @@ typedef struct s_cache
 	void	*img_floor;
 	void	*img_collectible;
 	void	*img_exit;
-	void	*img_player;
+	void	*player_right;
+	void	*player_left;
+	void	*player_up;
+	void	*player_down;
 }	t_cache;
 
 typedef struct s_game
@@ -42,6 +45,7 @@ typedef struct s_game
 	void	*black_bar;
 	void	*mlx;
 	void	*win;
+	int		player_direction;
 	int		e_tile;
 	int		win_width;
 	int		win_height;

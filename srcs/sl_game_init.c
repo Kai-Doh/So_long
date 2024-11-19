@@ -6,7 +6,7 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 01:30:17 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/19 13:24:01 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/11/19 15:05:06 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	create_black_bar(t_game *game);
 
 int	initialize_game(t_game *game)
 {
-	game->win_height = count_rows(game->map) * TILE_SIZE + 40;
-	game->win_width = ft_strlen(game->map[0]) * TILE_SIZE + 100;
+	game->win_height = count_rows(game->map) * TILE_SIZE;
+	game->win_width = ft_strlen(game->map[0]) * TILE_SIZE;
 	game->left_offset = (game->win_width -
 			(ft_strlen(game->map[0]) * TILE_SIZE)) / 2;
 	game->mlx = mlx_init();
@@ -34,6 +34,7 @@ int	initialize_game(t_game *game)
 	game->total_collectibles = count_collectibles(game->map);
 	game->e_tile = 0;
 	game->moves = 0;
+	load_cache(game);
 	return (SUCCESS);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 02:05:29 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/19 12:49:15 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/11/19 14:50:31 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,14 @@ void	move_player(t_game *game, int row_offset, int col_offset)
 	find_player(game->map, &player_row, &player_col);
 	new_row = player_row + row_offset;
 	new_col = player_col + col_offset;
+	  if (row_offset == -1)
+        game->player_direction = 0;
+    else if (row_offset == 1)
+        game->player_direction = 1;
+    else if (col_offset == -1)
+        game->player_direction = 2;
+    else if (col_offset == 1)
+        game->player_direction = 3;
 	if (is_valid_move(game, new_row, new_col))
 	{
 		game->moves++;
