@@ -6,7 +6,7 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 01:51:09 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/19 02:45:44 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/11/19 13:40:19 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,32 @@
 # include "../libft/libft.h"
 # include "../minilibx-linux/mlx.h"
 
+typedef struct s_cache
+{
+	void	*img_wall;
+	void	*img_floor;
+	void	*img_collectible;
+	void	*img_exit;
+	void	*img_player;
+}	t_cache;
+
 typedef struct s_game
 {
+	void	*black_bar;
 	void	*mlx;
 	void	*win;
 	int		e_tile;
 	int		win_width;
 	int		win_height;
+	int		left_offset;
 	int		collected;
 	int		total_collectibles;
+	int		moves;
 	char	**map;
+	t_cache	cache;
 }	t_game;
 
+void	display_moves(t_game *game);
 void	cleanup_game(t_game *game);
 int		close_game(void *game);
 int		initialize_game(t_game *game);
@@ -62,5 +76,8 @@ void	render_player(t_game *game, int i, int j);
 int		handle_keypress(int keycode, t_game *game);
 void	move_player(t_game *game, int row_offset, int col_offset);
 void 	find_player(char **map, int *row, int *col);
+void	update_tile(t_game *game, int row, int col);
+void	load_cache(t_game *game);
+void	free_cache(t_game *game);
 
 #endif

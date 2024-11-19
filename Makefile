@@ -17,6 +17,9 @@ SRCS =	srcs/so_long.c\
 		srcs/sl_game_init.c\
 		srcs/sl_handle_key.c\
 		srcs/sl_move_player.c\
+		srcs/sl_move_player_2.c\
+		srcs/sl_move_count.c\
+		srcs/sl_img_cache.c\
 		libft/libft.a\
 		minilibx-linux/libmlx_Linux.a\
 		minilibx-linux/libmlx.a

@@ -6,7 +6,7 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 02:05:29 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/19 02:53:03 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/11/19 12:49:15 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	move_player(t_game *game, int row_offset, int col_offset)
 	new_col = player_col + col_offset;
 	if (is_valid_move(game, new_row, new_col))
 	{
+		game->moves++;
 		handle_interactions(game, new_row, new_col);
 		update_map(game->map, player_row, player_col, new_row,
 			new_col, &game->e_tile);

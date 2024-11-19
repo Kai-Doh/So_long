@@ -6,7 +6,7 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 00:34:06 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/19 01:50:48 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/11/19 12:19:59 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ int	count_rows(char **map)
 	if (!map)
 		return (0);
 	while (map[rows])
-	{
 		rows++;
-	}
 	return (rows);
 }
 
@@ -58,6 +56,11 @@ char	*trim_newline(char *line)
 {
 	int	len;
 
+	if (!line)
+	{
+		ft_printf("\033[31mError: Line is NULL.\033[0m\n");
+   		return (NULL);
+	}
 	len = ft_strlen(line);
 	if (len > 0 && line[len - 1] == '\n')
 		line[len - 1] = '\0';

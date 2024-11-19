@@ -6,7 +6,7 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 23:22:44 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/19 02:30:01 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/11/19 12:19:34 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,10 @@ int	is_rectangular(char **map, int rows, int cols)
 	i = 0;
 	while (i < rows)
 	{
+		if (!map[i]) {
+			ft_printf("\033[31mError: Row %d is NULL.\033[0m\n", i);
+			return (1);
+        }
 		if ((int)ft_strlen(map[i]) != cols)
 		{
 			ft_printf("\033[31mError: Map is not rectangular.\033[0m\n");

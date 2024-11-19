@@ -6,7 +6,7 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 23:02:10 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/19 01:04:14 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/11/19 12:28:29 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ char	**store_line(char **map, char *line, int rows)
 	int		i;
 
 	line = trim_newline(line);
-	new_map = malloc((rows + 1) * sizeof(char *));
+	new_map = malloc((rows + 2) * sizeof(char *));
 	if (!new_map)
 	{
 		free (line);
@@ -100,6 +100,7 @@ char	**store_line(char **map, char *line, int rows)
 		i++;
 	}
 	new_map[i] = line;
+	new_map[i + 1] = NULL;
 	free(map);
 	return (new_map);
 }

@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   sl_move_count.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 18:50:01 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/19 13:54:38 by ktiomico         ###   ########.fr       */
+/*   Created: 2024/11/19 02:59:53 by ktiomico          #+#    #+#             */
+/*   Updated: 2024/11/19 03:04:25 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int ac, char **av)
+void	display_moves(t_game *game)
 {
-	t_game	game;
+	char	*move;
 
-	game.map = NULL;
-	if (check_file(ac, av) == 1)
-		return (ARGS_FAIL);
-	game.map = process_map(av[1]);
-	if (!game.map)
-		return (MAP_FAIL);
-	if (initialize_game(&game) != 0)
-		return (MLX_FAIL);
-	run_game(&game);
-	cleanup_game(&game);
-	return (0);
+	move = ft_itoa(game->moves);
+	mlx_string_put(game->mlx, game->win, 10, 10, 0xFFFFFF, "Moves: ");
+	mlx_string_put(game->mlx, game->win, 80, 10, 0xFFFFFF, move);
+	free(move);
 }
