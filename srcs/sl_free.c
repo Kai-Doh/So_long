@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   sl_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 18:50:01 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/19 01:39:40 by ktiomico         ###   ########.fr       */
+/*   Created: 2024/11/19 01:35:15 by ktiomico          #+#    #+#             */
+/*   Updated: 2024/11/19 01:37:33 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int ac, char **av)
+void	cleanup_game(t_game *game)
 {
-	t_game	game;
-
-	game.map = NULL;
-	if (check_file(ac, av) == 1)
-		return (ARGS_FAIL);
-	game.map = process_map(av[1]);
-	if (!game.map)
-		return (MAP_FAIL);
-	if (initialize_game(&game) != 0)
-		return (MLX_FAIL);
-	run_game(&game);
-	cleanup_game(&game);
-	return (0);
+	if (game->map)
+	{
+		free_map(game->map);
+		game->map = NULL;
+	}
+	if (game->win)
+	{
+		mlx_destroy_window(game->mlx, game->win);
+		game->win = NULL;
+	}
+	if (game->mlx)
+	{
+		free(game->mlx);
+		game->mlx = NULL;
+	}
 }

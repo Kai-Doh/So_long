@@ -11,6 +11,10 @@ SRCS =	srcs/so_long.c\
 		srcs/sl_map_read.c\
 		srcs/sl_map_check.c\
 		srcs/sl_map_utils.c\
+		srcs/sl_map_render.c\
+		srcs/sl_map_render_2.c\
+		srcs/sl_free.c\
+		srcs/sl_game_init.c\
 		libft/libft.a\
 		minilibx-linux/libmlx_Linux.a\
 		minilibx-linux/libmlx.a

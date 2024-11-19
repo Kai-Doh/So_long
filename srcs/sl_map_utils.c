@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sl_utils.c                                         :+:      :+:    :+:   */
+/*   sl_map_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 00:34:06 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/19 01:04:57 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/11/19 01:50:48 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	check_side_columns(char **map, int rows, int cols)
 	return (0);
 }
 
-char *trim_newline(char *line)
+char	*trim_newline(char *line)
 {
 	int	len;
 

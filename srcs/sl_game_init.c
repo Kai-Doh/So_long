@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   sl_game_init.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 18:50:01 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/19 01:39:40 by ktiomico         ###   ########.fr       */
+/*   Created: 2024/11/19 01:30:17 by ktiomico          #+#    #+#             */
+/*   Updated: 2024/11/19 01:50:34 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int ac, char **av)
+int	initialize_game(t_game *game)
 {
-	t_game	game;
-
-	game.map = NULL;
-	if (check_file(ac, av) == 1)
-		return (ARGS_FAIL);
-	game.map = process_map(av[1]);
-	if (!game.map)
-		return (MAP_FAIL);
-	if (initialize_game(&game) != 0)
+	game->win_height = count_rows(game->map) * TILE_SIZE;
+	game->win_width = ft_strlen(game->map[0]) * TILE_SIZE;
+	game->mlx = mlx_init();
+	if (!game->mlx)
 		return (MLX_FAIL);
-	run_game(&game);
-	cleanup_game(&game);
-	return (0);
+	game->win = mlx_new_window(game->mlx, game->win_width, game->win_height,
+			"so_long");
+	if (!game->win)
+		return (MLX_FAIL);
+	return (SUCCESS);
+}
+
+void	run_game(t_game *game)
+{
+	render_map(game);
+	mlx_loop(game->mlx);
 }
