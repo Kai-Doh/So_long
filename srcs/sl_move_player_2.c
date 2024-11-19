@@ -6,11 +6,13 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 12:37:39 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/19 14:51:36 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/11/19 23:25:54 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	update_tile_player(t_game *game, int row, int col, char tile);
 
 void	update_tile(t_game *game, int row, int col)
 {
@@ -18,16 +20,42 @@ void	update_tile(t_game *game, int row, int col)
 
 	tile = game->map[row][col];
 	mlx_put_image_to_window(game->mlx, game->win, game->cache.img_floor,
-			col * TILE_SIZE, row * TILE_SIZE);
-	if (tile == 'P')
+			col * TILE_SIZE, row * TILE_SIZE + 12);
+	if (tile == '1') // Wall
+		mlx_put_image_to_window(game->mlx, game->win, game->cache.img_wall,
+			col * TILE_SIZE, row * TILE_SIZE + 12);
+	else if (tile == 'C') // Collectible
+		mlx_put_image_to_window(game->mlx, game->win, game->cache.img_collectible,
+			col * TILE_SIZE, row * TILE_SIZE + 12);
+	else if (tile == 'E') // Exit
+		mlx_put_image_to_window(game->mlx, game->win, game->cache.img_exit,
+			col * TILE_SIZE, row * TILE_SIZE + 12);
+	update_tile_player(game, row, col, tile);
+}
+
+void	update_tile_player(t_game *game, int row, int col, char tile)
+{
+		if (tile == 'P')
 	{
 		if (game->player_direction == 0)
-			mlx_put_image_to_window(game->mlx, game->win, game->cache.player_up, col * TILE_SIZE, row * TILE_SIZE);
+			mlx_put_image_to_window(game->mlx, game->win, game->cache.player_up, col * TILE_SIZE, row * TILE_SIZE + 12);
 		else if (game->player_direction == 1)
-			mlx_put_image_to_window(game->mlx, game->win, game->cache.player_down, col * TILE_SIZE, row * TILE_SIZE);
+			mlx_put_image_to_window(game->mlx, game->win, game->cache.player_down, col * TILE_SIZE, row * TILE_SIZE + 12);
 		else if (game->player_direction == 2)
-			mlx_put_image_to_window(game->mlx, game->win, game->cache.player_left, col * TILE_SIZE, row * TILE_SIZE);
+			mlx_put_image_to_window(game->mlx, game->win, game->cache.player_left, col * TILE_SIZE, row * TILE_SIZE + 12);
 		else if (game->player_direction == 3)
-			mlx_put_image_to_window(game->mlx, game->win, game->cache.player_right, col * TILE_SIZE, row * TILE_SIZE);
+			mlx_put_image_to_window(game->mlx, game->win, game->cache.player_right, col * TILE_SIZE, row * TILE_SIZE + 12);
 	}
+}
+
+void	player_direction(t_game *game, int row_offset, int col_offset)
+{
+		  if (row_offset == -1)
+        game->player_direction = 0;
+    else if (row_offset == 1)
+        game->player_direction = 1;
+    else if (col_offset == -1)
+        game->player_direction = 2;
+    else if (col_offset == 1)
+        game->player_direction = 3;
 }

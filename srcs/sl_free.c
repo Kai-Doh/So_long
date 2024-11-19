@@ -6,7 +6,7 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 01:35:15 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/19 17:20:14 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/11/19 22:54:26 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,19 @@ void	cleanup_game(t_game *game)
 		free(game->mlx);
 		game->mlx = NULL;
 	}
+}
+
+void	free_map(char **map)
+{
+	int	i;
+
+	i = 0;
+	if (!map)
+		return ;
+	while (map[i])
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
 }

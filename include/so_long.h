@@ -6,7 +6,7 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 01:51:09 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/19 17:09:03 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/11/19 23:12:02 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ typedef struct s_game
 	t_cache	cache;
 }	t_game;
 
+void	player_direction(t_game *game, int row_offset, int col_offset);
 void	display_moves(t_game *game);
 void	cleanup_game(t_game *game);
 int		close_game(void *game);

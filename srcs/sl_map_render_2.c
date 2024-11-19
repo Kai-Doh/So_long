@@ -6,7 +6,7 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 01:45:57 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/19 16:28:47 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/11/19 23:27:53 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,5 @@ void	render_exit(t_game *game, int i, int j)
 void	render_black_bar(t_game *game)
 {
 	mlx_put_image_to_window(game->mlx, game->win, game->black_bar, 0, 0);
+	display_moves(game);
 }

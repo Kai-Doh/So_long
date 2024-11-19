@@ -6,7 +6,7 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 23:02:10 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/19 17:08:32 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/11/19 22:54:24 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,17 +105,4 @@ char	**store_line(char **map, char *line, int rows)
 	return (new_map);
 }
 
-void	free_map(char **map)
-{
-	int	i;
 
-	i = 0;
-	if (!map)
-		return ;
-	while (map[i])
-	{
-		free(map[i]);
-		i++;
-	}
-	free(map);
-}

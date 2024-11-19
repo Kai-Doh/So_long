@@ -6,7 +6,7 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 02:05:29 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/19 16:55:06 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/11/19 23:13:06 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,22 +28,16 @@ void	move_player(t_game *game, int row_offset, int col_offset)
 	find_player(game->map, &player_row, &player_col);
 	new_row = player_row + row_offset;
 	new_col = player_col + col_offset;
-	  if (row_offset == -1)
-        game->player_direction = 0;
-    else if (row_offset == 1)
-        game->player_direction = 1;
-    else if (col_offset == -1)
-        game->player_direction = 2;
-    else if (col_offset == 1)
-        game->player_direction = 3;
+	player_direction(game, row_offset, col_offset);
 	if (is_valid_move(game, new_row, new_col))
 	{
 		game->moves++;
 		handle_interactions(game, new_row, new_col);
 		update_map(game->map, player_row, player_col, new_row,
-			new_col, &game->e_tile);
-		mlx_clear_window(game->mlx, game->win);
-		render_map(game);
+				new_col, &game->e_tile);
+		update_tile(game, player_row, player_col);
+		update_tile(game, new_row, new_col);
+		render_black_bar(game);
 	}
 }
 
