@@ -6,7 +6,7 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 01:30:17 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/19 15:05:06 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/11/19 16:32:16 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	create_black_bar(t_game *game);
 
 int	initialize_game(t_game *game)
 {
-	game->win_height = count_rows(game->map) * TILE_SIZE;
-	game->win_width = ft_strlen(game->map[0]) * TILE_SIZE;
+	game->win_height = (count_rows(game->map) * TILE_SIZE) + 12;
+	game->win_width = (ft_strlen(game->map[0]) * TILE_SIZE);
 	game->left_offset = (game->win_width -
 			(ft_strlen(game->map[0]) * TILE_SIZE)) / 2;
 	game->mlx = mlx_init();
@@ -30,6 +30,7 @@ int	initialize_game(t_game *game)
 	if (!game->win)
 		return (MLX_FAIL);
 	create_black_bar(game);
+	render_black_bar(game);
 	game->collected = 0;
 	game->total_collectibles = count_collectibles(game->map);
 	game->e_tile = 0;
@@ -87,17 +88,17 @@ void	create_black_bar(t_game *game)
 	int		j;
 	char	*data;
 
-	bar_height = 40;
+	bar_height = 12;
 	total_pixels = game->win_width * bar_height;
 	game->black_bar = mlx_new_image(game->mlx, game->win_width, bar_height);
 	data = mlx_get_data_addr(game->black_bar, &i, &j, &i);
 	i = 0;
 	while (i < total_pixels * 4)
 	{
-		data[i] = 0;
-		data[i + 1] = 0;
-		data[i + 2] = 0;
-		data[i + 3] = 0;
+		data[i] = 88;
+		data[i + 1] = 77;
+		data[i + 2] = 47;
+		data[i + 3] = 255;
 		i += 4;
 	}
 

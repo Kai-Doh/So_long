@@ -6,7 +6,7 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 01:41:18 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/19 15:00:09 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/11/19 16:28:52 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,30 +53,30 @@ void	render_tile(t_game *game, char tile, int i, int j)
 void	render_wall(t_game *game, int i, int j)
 {
 	mlx_put_image_to_window(game->mlx, game->win,
-		game->cache.img_wall, j * TILE_SIZE, i * TILE_SIZE);
+		game->cache.img_wall, j * TILE_SIZE, i * TILE_SIZE + 12);
 }
 
 void	render_floor(t_game *game, int i, int j)
 {
 	mlx_put_image_to_window(game->mlx, game->win,
-		game->cache.img_floor, j * TILE_SIZE, i * TILE_SIZE);
+		game->cache.img_floor, j * TILE_SIZE, i * TILE_SIZE + 12);
 }
 
 void	render_player(t_game *game, int i, int j)
 {
 	if (game->player_direction == 0)
 		mlx_put_image_to_window(game->mlx, game->win,
-		game->cache.player_up, j * TILE_SIZE, i * TILE_SIZE);
+		game->cache.player_up, j * TILE_SIZE, i * TILE_SIZE + 12);
 	else if (game->player_direction == 1)
 		mlx_put_image_to_window(game->mlx, game->win,
-		game->cache.player_down, j * TILE_SIZE, i * TILE_SIZE);
+		game->cache.player_down, j * TILE_SIZE, i * TILE_SIZE + 12);
 	else if (game->player_direction == 2)
 		mlx_put_image_to_window(game->mlx, game->win,
-		game->cache.player_left, j * TILE_SIZE, i * TILE_SIZE);
+		game->cache.player_left, j * TILE_SIZE, i * TILE_SIZE + 12);
 	else if (game->player_direction == 3)
 		mlx_put_image_to_window(game->mlx, game->win,
-		game->cache.player_right, j * TILE_SIZE, i * TILE_SIZE);
+		game->cache.player_right, j * TILE_SIZE, i * TILE_SIZE + 12);
 	else
 		mlx_put_image_to_window(game->mlx, game->win,
-		game->cache.player_right, j * TILE_SIZE, i * TILE_SIZE);
+		game->cache.player_right, j * TILE_SIZE, i * TILE_SIZE + 12);
 }

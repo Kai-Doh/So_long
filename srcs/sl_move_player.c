@@ -6,7 +6,7 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 02:05:29 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/19 14:50:31 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/11/19 16:55:06 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,11 +87,12 @@ void	handle_interactions(t_game *game, int row, int col)
 	{
 		if (all_collectibles_collected(game))
 		{
-			ft_printf("Congratulations! You've won the game.\n");
+			ft_printf(
+				"\033[32m[✔] Congratulations! You've won the game.\033[0m\n");
 			close_game(game);
 		}
 		else
-			ft_printf("Collect all items before exiting!\n");
+			ft_printf("\033[31mCollect all items before exiting!\033[0m\n");
 	}
 }
 

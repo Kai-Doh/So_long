@@ -6,7 +6,7 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 23:02:10 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/19 12:28:29 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/11/19 17:08:32 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	**read_map(const char *file);
 char	**store_map(int fd);
 char	**store_line(char **map, char *line, int rows);
 
-char	**process_map(const char *file)
+char	**process_map(const char *file, t_game *game)
 {
 	char	**map;
 
@@ -30,7 +30,7 @@ char	**process_map(const char *file)
 	if (validate_map(map))
 	{
 		ft_printf("\033[31mError: Invalid map.\033[0m\n");
-		free_map(map);
+		cleanup_game(game);
 		return (NULL);
 	}
 	ft_printf("\033[32m[✔] Map structure is valid.\033[0m\n");

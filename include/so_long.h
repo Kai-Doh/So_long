@@ -6,7 +6,7 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 01:51:09 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/19 14:45:25 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/11/19 17:09:03 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int		close_game(void *game);
 int		initialize_game(t_game *game);
 void	run_game(t_game *game);
 int		check_file(int ac, char **av);
-char	**process_map(const char *file);
+char	**process_map(const char *file, t_game *game);
 int		validate_map(char **map);
 void	free_map(char **map);
 int		count_rows(char **map);
@@ -77,6 +77,7 @@ void	render_tile(t_game *game, char tile, int i, int j);
 void	render_wall(t_game *game, int i, int j);
 void	render_floor(t_game *game, int i, int j);
 void	render_player(t_game *game, int i, int j);
+void	render_black_bar(t_game *game);
 int		handle_keypress(int keycode, t_game *game);
 void	move_player(t_game *game, int row_offset, int col_offset);
 void 	find_player(char **map, int *row, int *col);
