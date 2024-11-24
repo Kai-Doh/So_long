@@ -6,7 +6,7 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 01:41:18 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/19 23:59:47 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/11/24 10:31:11 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ void	render_tile(t_game *game, char tile, int i, int j)
 		render_collectible(game, i, j);
 	else if (tile == 'E')
 		render_exit(game, i, j);
+	else if (tile == 'X')
+		render_enemy(game, i, j);
 }
 
 void	render_wall(t_game *game, int i, int j)

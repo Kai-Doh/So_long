@@ -6,7 +6,7 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 23:22:44 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/19 17:07:00 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/11/24 10:05:55 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ int	validate_components(char **map, int rows, int cols)
 	player = count_character(map, rows, cols, 'P');
 	exit = count_character(map, rows, cols, 'E');
 	collectible = count_character(map, rows, cols, 'C');
+
 	if (player != 1 || exit < 1 || collectible < 1)
 	{
 		ft_printf("\033[31mDoes not have the right components.\033[0m\n");

@@ -6,7 +6,7 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 12:37:39 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/19 23:43:57 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/11/24 10:16:24 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ void	update_tile(t_game *game, int row, int col)
 	else if (tile == 'E')
 		mlx_put_image_to_window(game->mlx, game->win, game->cache.img_exit,
 			(col * TILE_SIZE) + 20, row * TILE_SIZE + 12);
+	else if (tile == 'X')
+		mlx_put_image_to_window(game->mlx, game->win, game->cache.img_enemy,
+			col * TILE_SIZE, row * TILE_SIZE + 12);
 	update_tile_player(game, row, col, tile);
 }
 

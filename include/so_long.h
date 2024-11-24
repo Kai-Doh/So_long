@@ -6,7 +6,7 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 01:51:09 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/19 23:12:02 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/11/24 10:31:51 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,19 @@
 # include "../libft/libft.h"
 # include "../minilibx-linux/mlx.h"
 
+typedef struct s_enemy
+{
+	int	row;
+	int	col;
+}	t_enemy;
+
 typedef struct s_cache
 {
 	void	*img_wall;
 	void	*img_floor;
 	void	*img_collectible;
 	void	*img_exit;
+	void	*img_enemy;
 	void	*player_right;
 	void	*player_left;
 	void	*player_up;
@@ -53,7 +60,9 @@ typedef struct s_game
 	int		collected;
 	int		total_collectibles;
 	int		moves;
+	int		enemy_count;
 	char	**map;
+	t_enemy	enemies;
 	t_cache	cache;
 }	t_game;
 
@@ -77,6 +86,7 @@ void	render_exit(t_game *game, int i, int j);
 void	render_tile(t_game *game, char tile, int i, int j);
 void	render_wall(t_game *game, int i, int j);
 void	render_floor(t_game *game, int i, int j);
+void	render_enemy(t_game *game, int i, int j);
 void	render_player(t_game *game, int i, int j);
 void	render_black_bar(t_game *game);
 int		handle_keypress(int keycode, t_game *game);

@@ -6,7 +6,7 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 13:10:57 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/19 17:12:42 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/11/24 10:30:16 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	load_cache(t_game *game)
 			"assets/collectible.xpm", &img_width, &img_height);
 	game->cache.img_exit = mlx_xpm_file_to_image(game->mlx,
 			"assets/exit.xpm", &img_width, &img_height);
+	game->cache.img_enemy = mlx_xpm_file_to_image(game->mlx,
+			"assets/enemy.xpm", &img_width, &img_height);
 	game->cache.player_right = mlx_xpm_file_to_image(game->mlx,
 			"assets/player_right.xpm", &img_width, &img_height);
 	if (!game->cache.img_wall || !game->cache.img_floor ||
@@ -70,4 +72,6 @@ void	free_cache(t_game *game)
 		mlx_destroy_image(game->mlx, game->cache.player_down);
 	if (game->cache.player_left)
 		mlx_destroy_image(game->mlx, game->cache.player_left);
+	if (game->cache.img_enemy)
+		mlx_destroy_image(game->mlx, game->cache.img_enemy);
 }
