@@ -95,9 +95,9 @@ bonus: $(OBJS) $(OBJS_BONUS)
 	@echo "$$(echo -e '$(GREEN)✔ Library $(NAME) with bonus created.$(RESET)')"
 
 clean:
-	@echo "$$(echo -e '$(RED)Cleaning object files...$(RESET)')"
+	@echo "$$(echo -e '$(RED)Cleaning Libft object files...$(RESET)')"
 	@$(RM) $(OBJS) $(OBJS_BONUS)
-	@echo "$$(echo -e '$(GREEN)✔ Object files removed.$(RESET)')"
+	@echo "$$(echo -e '$(GREEN)✔ Libft object files removed.$(RESET)')"
 
 fclean: clean
 	@echo "$$(echo -e '$(RED)Removing library $(NAME)...$(RESET)')"

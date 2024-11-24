@@ -1,3 +1,9 @@
+RESET = \033[0m
+GREEN = \033[32m
+BLUE = \033[34m
+YELLOW = \033[33m
+RED = \033[31m
+
 NAME = so_long
 
 CC = gcc
@@ -25,17 +31,24 @@ SRCS =	srcs/so_long.c\
 		minilibx-linux/libmlx.a
 
 $(NAME) :
-		make bonus -C libft
-		gcc $(CFLAGS) $(SRCS) -o $(NAME)
+	@make --no-print-directory -C minilibx-linux
+	@make --no-print-directory bonus -C libft
+	@echo "$$(echo -e '$(YELLOW)Compiling $<...$(RESET)')"
+	@gcc $(CFLAGS) $(SRCS) -o $(NAME)
 
 all : $(NAME)
 
 fclean : clean
-	$(RM) $(NAME)
-	make fclean -C libft
+	@echo "$$(echo -e '$(RED)Removing library $(NAME)...$(RESET)')"
+	@$(RM) $(NAME)
+	@echo "$$(echo -e '$(GREEN)✔ Library $(NAME) and object files removed.$(RESET)')"
+	@make fclean --no-print-directory -C libft
 
 clean :
-	$(RM) $(NAME)
-	make clean -C libft
+	@echo "$$(echo -e '$(RED)Cleaning object files...$(RESET)')"
+	@$(RM) $(NAME)
+	@echo "$$(echo -e '$(GREEN)✔ Object files removed.$(RESET)')"
+	@make clean --no-print-directory -C libft
+	@make clean --no-print-directory -C minilibx-linux
 
 re : fclean all
