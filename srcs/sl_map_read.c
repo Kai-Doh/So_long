@@ -6,7 +6,7 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 23:02:10 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/19 22:54:24 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/12/06 13:07:04 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,3 @@ char	**store_line(char **map, char *line, int rows)
 	free(map);
 	return (new_map);
 }
-
-

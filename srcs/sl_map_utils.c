@@ -6,7 +6,7 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 00:34:06 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/19 12:19:59 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/12/06 13:04:12 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char	*trim_newline(char *line)
 	if (!line)
 	{
 		ft_printf("\033[31mError: Line is NULL.\033[0m\n");
-   		return (NULL);
+		return (NULL);
 	}
 	len = ft_strlen(line);
 	if (len > 0 && line[len - 1] == '\n')

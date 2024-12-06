@@ -6,7 +6,7 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 01:41:18 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/24 10:31:11 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/12/06 13:03:54 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,17 +68,17 @@ void	render_player(t_game *game, int i, int j)
 {
 	if (game->player_direction == 0)
 		mlx_put_image_to_window(game->mlx, game->win,
-		game->cache.player_up, j * TILE_SIZE, i * TILE_SIZE + 12);
+			game->cache.player_up, j * TILE_SIZE, i * TILE_SIZE + 12);
 	else if (game->player_direction == 1)
 		mlx_put_image_to_window(game->mlx, game->win,
-		game->cache.player_down, j * TILE_SIZE, i * TILE_SIZE + 12);
+			game->cache.player_down, j * TILE_SIZE, i * TILE_SIZE + 12);
 	else if (game->player_direction == 2)
 		mlx_put_image_to_window(game->mlx, game->win,
-		game->cache.player_left, j * TILE_SIZE, i * TILE_SIZE + 12);
+			game->cache.player_left, j * TILE_SIZE, i * TILE_SIZE + 12);
 	else if (game->player_direction == 3)
 		mlx_put_image_to_window(game->mlx, game->win,
-		game->cache.player_right, j * TILE_SIZE, i * TILE_SIZE + 12);
+			game->cache.player_right, j * TILE_SIZE, i * TILE_SIZE + 12);
 	else
 		mlx_put_image_to_window(game->mlx, game->win,
-		game->cache.player_right, j * TILE_SIZE, i * TILE_SIZE + 12);
+			game->cache.player_right, j * TILE_SIZE, i * TILE_SIZE + 12);
 }

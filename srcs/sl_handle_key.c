@@ -6,7 +6,7 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 02:01:17 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/19 02:05:01 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/12/06 13:07:53 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	handle_keypress(int keycode, t_game *game)
 	return (0);
 }
 
-void find_player(char **map, int *row, int *col)
+void	find_player(char **map, int *row, int *col)
 {
 	int	i;
 	int	j;
@@ -36,12 +36,13 @@ void find_player(char **map, int *row, int *col)
 	while (map[i])
 	{
 		j = 0;
-		while (map[i][j]) {
+		while (map[i][j])
+		{
 			if (map[i][j] == 'P')
 			{
 				*row = i;
 				*col = j;
-				return;
+				return ;
 			}
 			j++;
 		}

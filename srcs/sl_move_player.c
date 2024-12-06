@@ -6,37 +6,30 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 02:05:29 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/24 10:33:22 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/12/06 13:20:26 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 int		is_valid_move(t_game *game, int new_row, int new_col);
-void	update_map(char **map, int old_row, int old_col,
-	int new_row, int new_col, int *e_tile);
+void	update_map(t_game *game);
 void	handle_interactions(t_game *game, int row, int col);
 int		all_collectibles_collected(t_game *game);
 
 void	move_player(t_game *game, int row_offset, int col_offset)
 {
-	int	player_row;
-	int	player_col;
-	int	new_col;
-	int	new_row;
-
-	find_player(game->map, &player_row, &player_col);
-	new_row = player_row + row_offset;
-	new_col = player_col + col_offset;
+	find_player(game->map, &game->pos.player_row, &game->pos.player_col);
+	game->pos.new_row = game->pos.player_row + row_offset;
+	game->pos.new_col = game->pos.player_col + col_offset;
 	player_direction(game, row_offset, col_offset);
-	if (is_valid_move(game, new_row, new_col))
+	if (is_valid_move(game, game->pos.new_row, game->pos.new_col))
 	{
 		game->moves++;
-		handle_interactions(game, new_row, new_col);
-		update_map(game->map, player_row, player_col, new_row,
-				new_col, &game->e_tile);
-		update_tile(game, player_row, player_col);
-		update_tile(game, new_row, new_col);
+		handle_interactions(game, game->pos.new_row, game->pos.new_col);
+		update_map(game);
+		update_tile(game, game->pos.player_row, game->pos.player_col);
+		update_tile(game, game->pos.new_row, game->pos.new_col);
 		render_black_bar(game);
 	}
 }
@@ -49,22 +42,23 @@ int	is_valid_move(t_game *game, int new_row, int new_col)
 	return (tile != '1');
 }
 
-void	update_map(char **map, int old_row, int old_col,
-	int new_row, int new_col, int *e_tile)
+void	update_map(t_game *game)
 {
-	if (map[old_row][old_col] == 'P' && *e_tile == 1)
+	if (game->map[game->pos.player_row][game->pos.player_col] == 'P'
+			&& game->e_tile == 1)
 	{
-		map[old_row][old_col] = 'E';
-		*e_tile = 0;
+		game->map[game->pos.player_row][game->pos.player_col] = 'E';
+		game->e_tile = 0;
 	}
-	else if (map[old_row][old_col] == 'P' && map[new_row][new_col] == 'E')
+	else if (game->map[game->pos.player_row][game->pos.player_col] == 'P'
+			&& game->map[game->pos.new_row][game->pos.new_col] == 'E')
 	{
-		map[old_row][old_col] = '0';
-		*e_tile = 1;
+		game->map[game->pos.player_row][game->pos.player_col] = '0';
+		game->e_tile = 1;
 	}
 	else
-		map[old_row][old_col] = '0';
-	map[new_row][new_col] = 'P';
+		game->map[game->pos.player_row][game->pos.player_col] = '0';
+	game->map[game->pos.new_row][game->pos.new_col] = 'P';
 }
 
 void	handle_interactions(t_game *game, int row, int col)

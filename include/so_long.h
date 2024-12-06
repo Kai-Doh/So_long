@@ -6,7 +6,7 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 01:51:09 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/24 10:31:51 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/12/06 13:10:17 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,14 @@ typedef struct s_cache
 	void	*player_down;
 }	t_cache;
 
+typedef struct s_pos
+{
+	int	player_row;
+	int	player_col;
+	int	new_col;
+	int	new_row;
+}	t_pos;
+
 typedef struct s_game
 {
 	void	*black_bar;
@@ -64,6 +72,7 @@ typedef struct s_game
 	char	**map;
 	t_enemy	enemies;
 	t_cache	cache;
+	t_pos	pos;
 }	t_game;
 
 void	player_direction(t_game *game, int row_offset, int col_offset);

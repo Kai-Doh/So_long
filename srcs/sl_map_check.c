@@ -6,7 +6,7 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 23:22:44 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/24 10:05:55 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/12/06 13:06:40 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,11 @@ int	is_rectangular(char **map, int rows, int cols)
 	i = 0;
 	while (i < rows)
 	{
-		if (!map[i]) {
+		if (!map[i])
+		{
 			ft_printf("\033[31mError: Row %d is NULL.\033[0m\n", i);
 			return (1);
-        }
+		}
 		if ((int)ft_strlen(map[i]) != cols)
 		{
 			ft_printf("\033[31mError: Map is not rectangular.\033[0m\n");
@@ -84,7 +85,6 @@ int	validate_components(char **map, int rows, int cols)
 	player = count_character(map, rows, cols, 'P');
 	exit = count_character(map, rows, cols, 'E');
 	collectible = count_character(map, rows, cols, 'C');
-
 	if (player != 1 || exit < 1 || collectible < 1)
 	{
 		ft_printf("\033[31mDoes not have the right components.\033[0m\n");

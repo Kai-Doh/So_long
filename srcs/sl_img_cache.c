@@ -6,7 +6,7 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 13:10:57 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/24 10:30:16 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/12/06 12:58:21 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ void	load_cache(t_game *game)
 			"assets/enemy.xpm", &img_width, &img_height);
 	game->cache.player_right = mlx_xpm_file_to_image(game->mlx,
 			"assets/player_right.xpm", &img_width, &img_height);
-	if (!game->cache.img_wall || !game->cache.img_floor ||
-		!game->cache.img_collectible || !game->cache.img_exit ||
-		!game->cache.player_right)
+	if (!game->cache.img_wall || !game->cache.img_floor
+		|| !game->cache.img_collectible || !game->cache.img_exit
+		|| !game->cache.player_right)
 	{
 		ft_printf("\033[31mError: Failed to load images.\033[0m\n");
 		exit(EXIT_FAILURE);

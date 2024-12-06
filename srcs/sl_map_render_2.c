@@ -6,7 +6,7 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 01:45:57 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/24 10:19:32 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/12/06 13:06:55 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	render_enemy(t_game *game, int i, int j)
 	mlx_put_image_to_window(game->mlx, game->win,
 		game->cache.img_enemy, j * TILE_SIZE, i * TILE_SIZE + 12);
 }
+
 void	render_black_bar(t_game *game)
 {
 	mlx_put_image_to_window(game->mlx, game->win, game->black_bar, 0, 0);

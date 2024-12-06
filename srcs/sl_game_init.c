@@ -6,22 +6,22 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 01:30:17 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/11/19 16:32:16 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/12/06 12:57:09 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	close_game(void *game);
-int	count_collectibles(char **map);
+int		close_game(void *game);
+int		count_collectibles(char **map);
 void	create_black_bar(t_game *game);
 
 int	initialize_game(t_game *game)
 {
 	game->win_height = (count_rows(game->map) * TILE_SIZE) + 12;
 	game->win_width = (ft_strlen(game->map[0]) * TILE_SIZE);
-	game->left_offset = (game->win_width -
-			(ft_strlen(game->map[0]) * TILE_SIZE)) / 2;
+	game->left_offset = (game->win_width
+			- (ft_strlen(game->map[0]) * TILE_SIZE)) / 2;
 	game->mlx = mlx_init();
 	if (!game->mlx)
 		return (MLX_FAIL);
@@ -71,7 +71,7 @@ void	run_game(t_game *game)
 
 int	close_game(void *param)
 {
-	t_game *game;
+	t_game	*game;
 
 	game = (t_game *)param;
 	cleanup_game(game);
@@ -101,5 +101,4 @@ void	create_black_bar(t_game *game)
 		data[i + 3] = 255;
 		i += 4;
 	}
-
 }
