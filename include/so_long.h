@@ -6,7 +6,7 @@
 /*   By: ktiomico <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 01:51:09 by ktiomico          #+#    #+#             */
-/*   Updated: 2024/12/06 13:10:17 by ktiomico         ###   ########.fr       */
+/*   Updated: 2024/12/06 13:21:42 by ktiomico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void	render_player(t_game *game, int i, int j);
 void	render_black_bar(t_game *game);
 int		handle_keypress(int keycode, t_game *game);
 void	move_player(t_game *game, int row_offset, int col_offset);
-void 	find_player(char **map, int *row, int *col);
+void	find_player(char **map, int *row, int *col);
 void	update_tile(t_game *game, int row, int col);
 void	load_cache(t_game *game);
 void	free_cache(t_game *game);
